@@ -1,0 +1,13 @@
+syntax = "proto3";
+package tutorial;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jonperrett/govee-ble/proto";
+
+message Reading {
+  float temperature = 1;  // Unique ID number for this person.
+  float humidity = 2;
+  int32 battery = 3;
+  google.protobuf.Timestamp timestamp = 4;
+}

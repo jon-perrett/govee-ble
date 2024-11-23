@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	"github.com/jonperrett/govee-ble/reading"
-	"github.com/jonperrett/govee-ble/zero"
+	"github.com/jonperrett/govee-ble/pkg/reading"
+	"github.com/jonperrett/govee-ble/pkg/zero"
 )
 
 func main() {

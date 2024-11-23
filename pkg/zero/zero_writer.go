@@ -1,6 +1,7 @@
 package zero
 
 import (
+	"fmt"
 	"log"
 
 	"gopkg.in/zeromq/goczmq.v4"
@@ -11,7 +12,7 @@ type ZeroWriter struct {
 }
 
 func (writer *ZeroWriter) Write(data []byte) {
-	sock, err := goczmq.NewReq("tcp://127.0.0.1:5555")
+	sock, err := goczmq.NewReq(fmt.Sprintf("tcp://%s", writer.Address))
 	if err != nil {
 		log.Fatalln("Unable to connect to broker")
 		return

@@ -4,9 +4,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/jonperrett/govee-ble/bluetooth"
-	"github.com/jonperrett/govee-ble/data"
 	pb "github.com/jonperrett/govee-ble/generated/github.com/jonperrett/govee-ble/proto"
+	"github.com/jonperrett/govee-ble/pkg/bluetooth"
+	"github.com/jonperrett/govee-ble/pkg/data"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

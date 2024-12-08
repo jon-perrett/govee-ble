@@ -6,6 +6,7 @@ User=root
 Group=root
 Restart=always
 ExecStart=/bin/bash -c '/usr/bin/store'
+EnvironmentFile=/usr/local/env/govee-store.env
 
 [Install]
 WantedBy=multi-user.target

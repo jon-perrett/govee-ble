@@ -11,6 +11,7 @@ import (
 
 func main() {
 	reader := zero.ZeroReader{Address: "127.0.0.1:5556"}
+	reader.Initialise()
 	store := store.NewInfluxFromEnvironment("127.0.0.1:8086")
 	for {
 		data, err := reader.Poll()

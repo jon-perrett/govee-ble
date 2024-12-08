@@ -30,7 +30,12 @@ func (s *InfluxStore) WritePoint(reading *pb.Reading) {
 		map[string]string{"type": "reading"},
 		map[string]interface{}{"temp": reading.GetTemperature(), "humidity": reading.GetHumidity(), "battery": reading.GetBattery()},
 		reading.GetTimestamp().AsTime())
-	writeAPI.WritePoint(context.Background(), p)
+	err := writeAPI.WritePoint(context.Background(), p)
+	if err != nil {
+		log.Printf("Unable to write point %+v to influxdb", p)
+	} else {
+		log.Printf("Written point to store")
+	}
 	client.Close()
 
 }
@@ -55,8 +60,8 @@ func parseEnvironment() (string, string, string) {
 		organisation = org
 	}
 	var bucket string
-	if b, ok := os.LookupEnv("INFLUX_ORG"); !ok {
-		log.Fatalf("No InfluxDB org set.")
+	if b, ok := os.LookupEnv("INFLUX_BUCKET"); !ok {
+		log.Fatalf("No InfluxDB bucket set.")
 	} else {
 		bucket = b
 	}

@@ -1,0 +1,11 @@
+[Unit]
+Description=temp storage
+
+[Service]
+User=root
+Group=root
+Restart=always
+ExecStart=/bin/bash -c '/usr/bin/store'
+
+[Install]
+WantedBy=multi-user.target

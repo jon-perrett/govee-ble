@@ -1,0 +1,11 @@
+[Unit]
+Description=govee reader
+
+[Service]
+User=root
+Group=root
+Restart=always
+ExecStart=/bin/bash -c '/usr/bin/govee-reader'
+
+[Install]
+WantedBy=multi-user.target
